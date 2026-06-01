@@ -1,0 +1,142 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.nav.scrolled {
+  background: rgba(10, 10, 11, 0.97);
+  border-bottom-color: var(--border-mid);
+}
+
+.inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  gap: 4px;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-right: auto;
+  flex-shrink: 0;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s;
+}
+.logo:hover { opacity: 0.8; }
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+}
+.link:hover { color: var(--gold); background: var(--gold-dim); }
+.link.active { color: var(--gold); }
+
+.cta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--gold);
+  color: var(--bg);
+  padding: 7px 16px;
+  border-radius: 2px;
+  margin-left: 10px;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.cta:hover { opacity: 0.88; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.hamburgerOpen span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburgerOpen span:nth-child(2) { opacity: 0; }
+.hamburgerOpen span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--border);
+  background: rgba(10, 10, 11, 0.98);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobileLink {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.mobileLink:hover, .mobileLink.active { color: var(--gold); }
+
+.mobileCta {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--gold);
+  color: var(--bg);
+  padding: 12px 24px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .links { display: none; }
+  .cta { display: none; }
+  .hamburger { display: flex; }
+  .inner { padding: 0 20px; }
+}
