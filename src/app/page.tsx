@@ -582,12 +582,12 @@ export default function HomePage() {
       <Marquee items={['Follow Up Boss', 'kvCORE', 'IDX Integration', 'Elementor Pro', 'WordPress', 'Zapier', 'WPForms', 'Rank Math', 'Calendly', 'Real Geeks', 'BoomTown', 'Astra Pro']} />
       <AboutSection />
       <ServicesSection />
-      <CTABanner />
       <PortfolioSection />
       <SkillsSection />
       <ProcessSection />
       <PricingSection />
       <TestimonialsSection />
+      <CTABanner />
       <ContactSection />
     </>
   )
