@@ -43,9 +43,9 @@ export interface FAQ {
 export const projects: Project[] = [
   {
     id: 1,
-    tag: 'INDIVIDUAL AGENT · FLORIDA',
+    tag: 'INDIVIDUAL AGENT · LUXURY',
     title: 'Sarah Mitchell Realty',
-    location: 'Miami, FL',
+    location: 'Luxury Agent',
     desc: 'Luxury agent site with IDX integration, Follow Up Boss automation, and seller lead funnels. Generating 40+ leads/month.',
     tags: ['IDX', 'Follow Up Boss', 'Elementor'],
     color: 'gold',
@@ -53,9 +53,9 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    tag: 'TEAM SITE · TEXAS',
+    tag: 'TEAM SITE · BROKERAGE',
     title: 'The Rodriguez Group',
-    location: 'Dallas, TX',
+    location: 'Team Brokerage',
     desc: 'Multi-agent brokerage site with kvCORE embed, team pages, and custom lead routing to individual agents.',
     tags: ['kvCORE', 'Multi-agent', 'Astra Pro'],
     color: 'teal',
@@ -63,9 +63,9 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    tag: 'LEAD PAGE · CALIFORNIA',
-    title: 'LA Home Valuation',
-    location: 'Los Angeles, CA',
+    tag: 'LEAD PAGE · HIGH CONVERSION',
+    title: 'Home Valuation Funnel',
+    location: 'Seller Lead Page',
     desc: 'High-converting seller lead funnel connected directly to Follow Up Boss via Zapier. 18% conversion rate.',
     tags: ['Lead Gen', 'Zapier', 'FUB'],
     color: 'default',
@@ -73,9 +73,9 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    tag: 'INDIVIDUAL AGENT · FLORIDA',
+    tag: 'INDIVIDUAL AGENT · LUXURY',
     title: 'Broward Luxury Homes',
-    location: 'Fort Lauderdale, FL',
+    location: 'Luxury Specialist',
     desc: 'Luxury condo specialist site with custom IDX search, MLS integration, and neighbourhood landing pages.',
     tags: ['IDX', 'Elementor Pro', 'WPForms'],
     color: 'default',
@@ -83,9 +83,9 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    tag: 'TEAM SITE · CALIFORNIA',
+    tag: 'TEAM SITE · MULTI-AGENT',
     title: 'Bay Area Realty Group',
-    location: 'San Francisco, CA',
+    location: 'Team Office',
     desc: 'Full team site for a 12-agent office — individual agent profiles, shared CRM, and automated lead distribution.',
     tags: ['Follow Up Boss', 'kvCORE', 'GeneratePress'],
     color: 'gold',
@@ -93,9 +93,9 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    tag: 'LEAD PAGE · TEXAS',
-    title: 'Houston Homes Direct',
-    location: 'Houston, TX',
+    tag: 'LEAD PAGE · CRM INTEGRATED',
+    title: 'Homes Direct Campaign',
+    location: 'Lead Generation',
     desc: 'Buyer and seller lead pages with automated CRM sequences, SMS follow-up triggers, and Calendly booking.',
     tags: ['Lead Gen', 'FUB', 'Calendly'],
     color: 'teal',
@@ -135,28 +135,28 @@ export const testimonials: Testimonial[] = [
     stars: 5,
     quote: "Best investment I made — leads started coming in the first week. The FUB setup saved me hours every day.",
     name: 'Jennifer Walsh',
-    role: 'Realtor · Miami, FL',
+    role: 'Realtor · Luxury Market',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
   },
   {
     stars: 5,
     quote: "Finally someone who understands Follow Up Boss. My site actually works as a lead machine now.",
     name: 'Marcus Chen',
-    role: 'Team Lead · Dallas, TX',
+    role: 'Team Lead · Multi-Agent Office',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
   },
   {
     stars: 5,
     quote: "The IDX integration alone paid for the site in the first month. Incredibly professional work.",
     name: 'Diane Torres',
-    role: 'Broker · Los Angeles, CA',
+    role: 'Broker · Luxury Specialist',
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80',
   },
   {
     stars: 5,
     quote: "I'd tried two other developers before. Nobody understood the real estate tech stack like Realtyfub.",
     name: 'Robert Hayes',
-    role: 'Agent · Houston, TX',
+    role: 'Agent · Independent Brokerage',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
   },
 ]
@@ -183,7 +183,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Mar 2025',
     readTime: '5 min read',
     tag: 'GUIDE',
-    title: '5 Pages Every US Real Estate Website Needs (and What Goes On Each)',
+    title: '5 Pages Every Real Estate Website Needs (and What Goes On Each)',
     excerpt: 'Most agent sites are missing 2–3 of these. The pages that get skipped are usually the ones that convert the most leads.',
   },
   {
@@ -197,12 +197,12 @@ export const blogPosts: BlogPost[] = [
 ]
 
 export const faqs: FAQ[] = [
-  { q: 'Do you work with agents outside FL, CA, and TX?', a: 'Yes — I focus on those three states for SEO purposes but work with agents across all 50 US states. Remote-only, fully async.' },
+  { q: 'Do you work with agents outside your country?', a: 'Yes — I work with real estate agents and brokerages worldwide. Remote-only, fully async, regardless of your timezone or location.' },
   { q: 'How long does a typical project take?', a: 'Agent Starter: 7–10 days. Agent Pro: 14–18 days. Team/Brokerage: 3–4 weeks. Timeline starts after content is received.' },
   { q: 'Do you need my Follow Up Boss login?', a: 'For FUB setup, yes — read-only API access is enough. I never need admin credentials, and all access is revoked after delivery.' },
   { q: 'Can I update the site myself after launch?', a: 'Yes. All sites are built on WordPress + Elementor. I record a 15-minute walkthrough video showing you how to update listings, photos, and copy.' },
   { q: 'Do you offer ongoing maintenance?', a: 'Yes — $150/month covers plugin updates, security monitoring, uptime checks, and 1 hour of minor edits per month.' },
-  { q: "What if I don't have demo sites ready?", a: "I can build a fully functional demo site for a fictional US agent ($200 add-on) that you can use in your portfolio and pitch to clients." },
+  { q: "What if I don't have demo sites ready?", a: "I can build a fully functional demo site for a fictional real estate agent ($200 add-on) that you can use in your portfolio and pitch to clients." },
 ]
 
 export const serviceCards = [

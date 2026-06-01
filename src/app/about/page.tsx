@@ -23,11 +23,6 @@ const tools: Tool[] = [
   { name: 'LearnDash', logo: null, logohover: null, letter: 'LD', color: '#e98c2a' },
 ]
 
-const states = [
-  { name: 'Florida', desc: 'Miami, Orlando, Tampa — luxury agents and high-volume teams.', image: 'https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?w=500&q=80' },
-  { name: 'California', desc: 'LA, SF Bay Area, San Diego — luxury condo and tech-savvy buyers.', image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=500&q=80' },
-  { name: 'Texas', desc: 'Dallas, Houston, Austin — fast-growing markets, team sites.', image: 'https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=500&q=80' },
-]
 
 export default function AboutPage() {
   return (
@@ -50,7 +45,7 @@ export default function AboutPage() {
           <AnimateIn direction="left">
             <div className="rounded-[20px] overflow-hidden border border-border-mid">
               <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80"
+                src="/images/developer.jpg"
                 alt="Developer"
                 width={600}
                 height={600}
@@ -74,7 +69,7 @@ export default function AboutPage() {
                 { label: 'Speciality', value: 'Real Estate WordPress' },
                 { label: 'Experience', value: '4+ years' },
                 { label: 'Sites Built', value: '15+' },
-                { label: 'Focus States', value: 'FL, CA, TX' },
+                { label: 'Markets', value: 'Worldwide' },
               ].map(item => (
                 <div key={item.label} className="bg-bg3 border border-border rounded-[12px] p-4">
                   <span className="font-mono text-[9px] text-dim tracking-[0.14em] uppercase block mb-1">{item.label}</span>
@@ -123,35 +118,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* States */}
-      <section className="py-20">
-        <div className="wrap">
-          <AnimateIn className="text-center mb-12">
-            <p className="section-num justify-center">03 — Focus Markets</p>
-            <h2 className="font-serif text-[clamp(32px,4vw,48px)] font-semibold text-text">
-              Primary <em className="text-gold not-italic">US markets.</em>
-            </h2>
-          </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {states.map((state, i) => (
-              <AnimateIn key={state.name} delay={i * 0.1}>
-                <div className="group bg-bg3 border border-border rounded-[20px] overflow-hidden hover:border-gold/40 transition-all duration-300">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image src={state.image} alt={state.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-bg/50" />
-                    <div className="absolute bottom-4 left-4">
-                      <h3 className="font-serif text-[24px] font-semibold text-text">{state.name}</h3>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-muted text-[13px] leading-relaxed">{state.desc}</p>
-                  </div>
-                </div>
-              </AnimateIn>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </div>
   )
 }

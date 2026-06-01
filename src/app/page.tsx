@@ -77,7 +77,7 @@ function HeroSection() {
 
           <div className="relative rounded-[20px] overflow-hidden border border-border-mid">
             <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80"
+              src="/images/developer.jpg"
               alt="Developer"
               width={600}
               height={700}

@@ -88,7 +88,7 @@ export default function ServicesPage() {
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { price: '+$200', title: 'Demo Site Build', desc: 'A fully functional demo for a fictional US agent — use it in your portfolio and pitches.' },
+              { price: '+$200', title: 'Demo Site Build', desc: 'A fully functional demo for a fictional real estate agent — use it in your portfolio and pitches.' },
               { price: '+$150', title: 'Monthly Maintenance', desc: 'Plugin updates, security scans, uptime monitoring, and 1 hr of minor edits/month.' },
               { price: '+$300', title: 'Google Ads Landing Page', desc: 'High-converting PPC landing page wired to FUB with A/B-ready structure.' },
               { price: '+$250', title: 'Neighbourhood Pages (×5)', desc: 'Five SEO-optimised city or neighbourhood pages with IDX property feeds.' },
