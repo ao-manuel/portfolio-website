@@ -1,0 +1,27 @@
+.wrapper {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.track {
+  display: flex;
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+
+.item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.dot {
+  color: var(--gold);
+  opacity: 0.5;
+}
