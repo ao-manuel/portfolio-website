@@ -17,12 +17,20 @@
 .cardTeal { border-color: rgba(61,184,154,0.1); }
 .cardTeal:hover { border-color: rgba(61,184,154,0.25); }
 .cardImg {
-  height: 160px;
+  height: 200px;
   background: linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 100%);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.cardImg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(201,168,76,0.06) 0%, transparent 50%);
 }
 .locLabel {
   font-family: 'IBM Plex Mono', monospace;
