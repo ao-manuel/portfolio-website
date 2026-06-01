@@ -1,20 +1,17 @@
 import styles from './Marquee.module.css'
 
 export default function Marquee({ items = [] }) {
-  // Render items twice for seamless infinite loop
-  const renderItems = (items) =>
-    items.map((item, i) => (
-      <span key={i} className={styles.item}>
-        {item}
-        <span className={styles.dot}> · </span>
-      </span>
-    ))
+  const doubled = [...items, ...items]
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.marquee}>
       <div className={styles.track}>
-        {renderItems(items)}
-        {renderItems(items)}
+        {doubled.map((item, i) => (
+          <span key={i} className={styles.item}>
+            {item}
+            <span className={styles.dot}>✦</span>
+          </span>
+        ))}
       </div>
     </div>
   )

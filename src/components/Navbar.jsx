@@ -1,83 +1,66 @@
 import { useState, useEffect } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 const links = [
-  { to: '/work', label: 'Work' },
-  { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/contact', label: 'Contact' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Work', to: '/work' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
+  useEffect(() => { setOpen(false) }, [pathname])
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <Link to="/" className={styles.logo} onClick={() => setOpen(false)}>
-          Realtyfub
+        <Link to="/" className={styles.logo}>
+          <span className={styles.logoIcon}>✦</span>
+          <span className={styles.logoText}>Realtyfub</span>
         </Link>
 
-        <div className={styles.links}>
+        <nav className={`${styles.links} ${open ? styles.mobileOpen : ''}`}>
           {links.map(l => (
-            <NavLink
+            <Link
               key={l.to}
               to={l.to}
-              className={({ isActive }) =>
-                `${styles.link} ${isActive ? styles.active : ''}`
-              }
+              className={`${styles.link} ${pathname === l.to ? styles.active : ''}`}
             >
               {l.label}
-            </NavLink>
+            </Link>
           ))}
-        </div>
+          <Link to="/contact" className={`btn-outline ${styles.ctaMobile}`}>
+            Get in Touch
+          </Link>
+        </nav>
 
-        <Link to="/contact" className={styles.cta}>Hire Me</Link>
+        <Link to="/contact" className={`btn-outline ${styles.cta}`}>
+          Get in Touch
+        </Link>
 
         <button
-          className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ''}`}
+          className={styles.hamburger}
           onClick={() => setOpen(o => !o)}
           aria-label="Toggle menu"
         >
-          <span />
-          <span />
-          <span />
+          <span className={`${styles.bar} ${open ? styles.barOpen1 : ''}`} />
+          <span className={`${styles.bar} ${open ? styles.barOpen2 : ''}`} />
+          <span className={`${styles.bar} ${open ? styles.barOpen3 : ''}`} />
         </button>
       </div>
-
-      {open && (
-        <div className={styles.mobile}>
-          {links.map(l => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                `${styles.mobileLink} ${isActive ? styles.active : ''}`
-              }
-              onClick={() => setOpen(false)}
-            >
-              {l.label}
-            </NavLink>
-          ))}
-          <Link to="/contact" className={styles.mobileCta} onClick={() => setOpen(false)}>
-            Hire Me
-          </Link>
-        </div>
-      )}
-    </nav>
+    </header>
   )
 }
