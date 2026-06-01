@@ -13,16 +13,16 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-28 bg-bg min-h-screen">
+    <div className="pt-20 bg-bg min-h-screen">
       {/* Hero */}
-      <section className="py-20 bg-bg2 border-b border-border">
+      <section className="py-12 bg-bg2 border-b border-border">
         <div className="wrap">
           <AnimateIn>
             <p className="section-num">— Contact</p>
             <h1 className="font-serif text-[clamp(48px,6vw,80px)] font-semibold leading-[1.05] text-text mb-4">
               Let&apos;s Build<br /><em className="text-gold not-italic">Something Great.</em>
             </h1>
-            <p className="text-muted text-[16px] max-w-lg">Free 30-min discovery call. I typically respond within 4 hours.</p>
+            <p className="text-muted text-[16px] max-w-lg">Free 30-min discovery call. I typically respond within 1 hr.</p>
           </AnimateIn>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function ContactPage() {
             <div className="flex flex-col gap-6 mb-10">
               {[
                 { label: 'Email', val: 'hello@realtyfub.com', icon: '✉' },
-                { label: 'Response Time', val: 'Within 4 hours', icon: '⏱' },
+                { label: 'Response Time', val: 'Within 1 hr', icon: '⏱' },
                 { label: 'Timezone', val: 'EST — available globally', icon: '🌍' },
                 { label: 'Call Booking', val: 'Calendly (30-min free)', icon: '📅' },
               ].map(item => (
@@ -62,7 +62,7 @@ export default function ContactPage() {
               <div className="bg-bg3 border border-gold/30 rounded-[20px] p-12 text-center">
                 <div className="text-[56px] mb-4">✓</div>
                 <h3 className="font-serif text-[28px] text-gold mb-3">Message Sent!</h3>
-                <p className="text-muted text-[15px]">I&apos;ll get back to you within 4 hours with next steps.</p>
+                <p className="text-muted text-[15px]">I&apos;ll get back to you within 1 hr with next steps.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-bg3 border border-border rounded-[20px] p-8 flex flex-col gap-5">

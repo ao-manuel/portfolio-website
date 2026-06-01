@@ -9,9 +9,9 @@ export default function ServicesPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div className="pt-28 bg-bg min-h-screen">
+    <div className="pt-20 bg-bg min-h-screen">
       {/* Hero */}
-      <section className="py-20 bg-bg2 border-b border-border">
+      <section className="py-12 bg-bg2 border-b border-border">
         <div className="wrap">
           <AnimateIn>
             <p className="section-num">— Services</p>
@@ -76,8 +76,41 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Add-ons */}
       <section className="py-20">
+        <div className="wrap">
+          <AnimateIn className="mb-12">
+            <p className="section-num">— Add-Ons</p>
+            <h2 className="font-serif text-[clamp(32px,4vw,48px)] font-semibold text-text mb-3">
+              Extras to Supercharge <em className="text-gold not-italic">Your Site.</em>
+            </h2>
+            <p className="text-muted text-[14px] max-w-lg">Add any of these to your package at checkout — priced separately, no bundles required.</p>
+          </AnimateIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { price: '+$200', title: 'Demo Site Build', desc: 'A fully functional demo for a fictional US agent — use it in your portfolio and pitches.' },
+              { price: '+$150', title: 'Monthly Maintenance', desc: 'Plugin updates, security scans, uptime monitoring, and 1 hr of minor edits/month.' },
+              { price: '+$300', title: 'Google Ads Landing Page', desc: 'High-converting PPC landing page wired to FUB with A/B-ready structure.' },
+              { price: '+$250', title: 'Neighbourhood Pages (×5)', desc: 'Five SEO-optimised city or neighbourhood pages with IDX property feeds.' },
+              { price: '+$100', title: 'Zapier Automation Setup', desc: 'Custom Zaps connecting your forms to FUB, SMS, email sequences, and more.' },
+              { price: '+$200', title: 'Blog Setup + 3 Posts', desc: 'Blog section with 3 keyword-targeted posts for your market.' },
+              { price: '+$150', title: 'Seller Lead Funnel', desc: 'Dedicated home valuation / seller lead page with FUB or kvCORE integration.' },
+              { price: '+$100', title: 'Speed Optimisation', desc: 'Image compression, caching setup, CDN config — targeting 90+ PageSpeed score.' },
+            ].map((addon, i) => (
+              <AnimateIn key={addon.title} delay={i * 0.06}>
+                <div className="group bg-bg3 border border-border rounded-[20px] p-6 hover:-translate-y-1 hover:border-gold/30 transition-all duration-300">
+                  <div className="font-serif text-[22px] font-semibold text-gold mb-2">{addon.price}</div>
+                  <h3 className="font-sans text-[14px] font-semibold text-text mb-2">{addon.title}</h3>
+                  <p className="text-muted text-[12px] leading-relaxed">{addon.desc}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-bg2">
         <div className="wrap max-w-2xl mx-auto">
           <AnimateIn className="text-center mb-12">
             <p className="section-num justify-center">— FAQ</p>

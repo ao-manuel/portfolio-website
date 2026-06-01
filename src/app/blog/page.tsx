@@ -4,9 +4,9 @@ import { blogPosts } from '@/data/content'
 
 export default function BlogPage() {
   return (
-    <div className="pt-28 bg-bg min-h-screen">
+    <div className="pt-20 bg-bg min-h-screen">
       {/* Hero */}
-      <section className="py-20 bg-bg2 border-b border-border">
+      <section className="py-12 bg-bg2 border-b border-border">
         <div className="wrap">
           <AnimateIn>
             <p className="section-num">— Blog</p>

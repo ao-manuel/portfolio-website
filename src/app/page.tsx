@@ -154,7 +154,7 @@ function AboutSection() {
               { label: 'Name', value: 'Realtyfub' },
               { label: 'Email', value: 'hello@realtyfub.com' },
               { label: 'Availability', value: 'Open for projects' },
-              { label: 'Response', value: 'Within 4 hours' },
+              { label: 'Response', value: 'Within 1 hr' },
             ].map(item => (
               <div key={item.label} className="bg-bg3 border border-border rounded-[12px] p-4">
                 <span className="font-mono text-[9px] text-dim tracking-[0.14em] uppercase block mb-1">{item.label}</span>
@@ -250,7 +250,7 @@ function PortfolioSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[280px]">
-          {projects.map((proj, i) => (
+          {projects.slice(0, 5).map((proj, i) => (
             <AnimateIn key={proj.id} delay={i * 0.08} direction="up" className={i === 0 ? 'md:row-span-2' : ''}>
               <div
                 className="group relative rounded-[20px] overflow-hidden border border-border cursor-pointer bg-bg3 hover:border-gold/40 transition-all duration-300 h-full"
@@ -262,14 +262,15 @@ function PortfolioSection() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-bg/60 group-hover:bg-bg/40 transition-colors duration-300" />
+                {/* base overlay — lighter so text is always readable */}
+                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-transparent group-hover:via-bg/60 transition-all duration-300" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <span className="font-mono text-[9px] text-gold/80 tracking-[0.16em] uppercase mb-2">{proj.tag}</span>
-                  <h3 className="font-serif text-[20px] font-semibold text-text mb-1">{proj.title}</h3>
-                  <p className="text-muted text-[12px] mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">{proj.desc}</p>
-                  <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <span className="font-mono text-[10px] text-gold tracking-[0.1em]">View Project</span>
-                    <span className="text-gold">→</span>
+                  <span className="font-mono text-[9px] text-gold tracking-[0.16em] uppercase mb-2">{proj.tag}</span>
+                  <h3 className="font-serif text-[20px] font-semibold text-text mb-2">{proj.title}</h3>
+                  <p className="text-[#d0cdc6] text-[12px] mb-3 leading-relaxed translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 line-clamp-2">{proj.desc}</p>
+                  <div className="flex items-center gap-2 translate-y-3 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                    <span className="font-mono text-[10px] text-gold tracking-[0.1em] font-medium">View Project</span>
+                    <span className="text-gold font-bold">→</span>
                   </div>
                 </div>
               </div>
@@ -309,38 +310,55 @@ function PortfolioSection() {
 }
 
 // ─── Skills ──────────────────────────────────────────────────────────────────
-function SkillsSection() {
+function SkillCard({ skill, index }: { skill: typeof skills[0]; index: number }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const isInView = useInView(ref, { once: true, margin: '-60px' })
+  return (
+    <AnimateIn delay={index * 0.07} direction="up">
+      <div ref={ref} className="bg-bg3 border border-border rounded-[16px] p-5 hover:border-gold/30 hover:-translate-y-1 transition-all duration-300">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            {skill.icon ? (
+              <img src={skill.icon} alt={skill.name} width={28} height={28} className="w-7 h-7 object-contain" />
+            ) : (
+              <div className="w-7 h-7 rounded-[6px] bg-gold/10 border border-gold/20 flex items-center justify-center">
+                <span className="font-mono text-[8px] text-gold font-bold">{skill.name.slice(0, 2).toUpperCase()}</span>
+              </div>
+            )}
+            <span className="font-sans text-[13px] font-semibold text-text">{skill.name}</span>
+          </div>
+          <span className="font-mono text-[13px] font-medium text-gold">{skill.pct} %</span>
+        </div>
+        <div className="h-[6px] bg-bg4 rounded-full overflow-hidden">
+          <motion.div
+            className="h-full rounded-full"
+            style={{ background: 'linear-gradient(90deg, #4ade80, #86efac)' }}
+            initial={{ width: 0 }}
+            animate={{ width: isInView ? `${skill.pct}%` : 0 }}
+            transition={{ duration: 1.2, delay: index * 0.1, ease: 'easeOut' }}
+          />
+        </div>
+      </div>
+    </AnimateIn>
+  )
+}
 
+function SkillsSection() {
   return (
     <section className="py-28 bg-bg">
-      <div className="wrap grid md:grid-cols-2 gap-16 items-start">
-        <AnimateIn direction="left">
-          <p className="section-num">04 — Skills</p>
-          <h2 className="font-serif text-[clamp(36px,4vw,52px)] font-semibold leading-[1.1] text-text mb-6">
-            Deeply <em className="text-gold not-italic">specialised</em> in real estate tech.
+      <div className="wrap">
+        <AnimateIn className="text-center mb-16">
+          <p className="section-num justify-center">04 — Skills</p>
+          <h2 className="font-serif text-[clamp(36px,4vw,52px)] font-semibold leading-[1.1] text-text mb-4">
+            Explore the Core Skills Behind <em className="text-gold not-italic">My Work.</em>
           </h2>
-          <p className="text-muted text-[15px] leading-relaxed">
+          <p className="text-muted text-[15px] max-w-xl mx-auto">
             Years of focus on one niche means faster builds, fewer mistakes, and integrations that just work.
           </p>
         </AnimateIn>
-        <div ref={ref} className="flex flex-col gap-5 pt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skills.map((skill, i) => (
-            <div key={skill.name}>
-              <div className="flex justify-between mb-2">
-                <span className="font-mono text-[11px] text-muted tracking-[0.1em] uppercase">{skill.name}</span>
-                <span className="font-mono text-[11px] text-gold">{skill.pct}%</span>
-              </div>
-              <div className="h-[3px] bg-bg4 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gold rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: isInView ? `${skill.pct}%` : 0 }}
-                  transition={{ duration: 1, delay: i * 0.1, ease: 'easeOut' }}
-                />
-              </div>
-            </div>
+            <SkillCard key={skill.name} skill={skill} index={i} />
           ))}
         </div>
       </div>
@@ -491,7 +509,7 @@ function ContactSection() {
             <div className="flex flex-col gap-4">
               {[
                 { label: 'Email', val: 'hello@realtyfub.com' },
-                { label: 'Response Time', val: 'Within 4 hours' },
+                { label: 'Response Time', val: 'Within 1 hr' },
                 { label: 'Timezone', val: 'EST / Available globally' },
               ].map(item => (
                 <div key={item.label} className="flex items-center gap-4">
@@ -507,7 +525,7 @@ function ContactSection() {
               <div className="bg-bg3 border border-gold/30 rounded-[20px] p-12 text-center">
                 <div className="text-[48px] mb-4">✓</div>
                 <h3 className="font-serif text-[24px] text-gold mb-2">Message Sent!</h3>
-                <p className="text-muted text-[14px]">I&apos;ll get back to you within 4 hours.</p>
+                <p className="text-muted text-[14px]">I&apos;ll get back to you within 1 hr.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-bg3 border border-border rounded-[20px] p-8 flex flex-col gap-5">

@@ -2,17 +2,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AnimateIn from '@/components/AnimateIn'
 
-const tools = [
-  { name: 'WordPress', icon: '🔷' },
-  { name: 'Elementor Pro', icon: '🎨' },
-  { name: 'Follow Up Boss', icon: '🤝' },
-  { name: 'kvCORE', icon: '🏢' },
-  { name: 'Zapier', icon: '⚡' },
-  { name: 'IDX Broker', icon: '🏠' },
-  { name: 'WPForms', icon: '📝' },
-  { name: 'Rank Math', icon: '📈' },
-  { name: 'WooCommerce', icon: '🛒' },
-  { name: 'LearnDash', icon: '📚' },
+interface Tool {
+  name: string
+  logo: string | null
+  logohover: string | null
+  letter: string | null
+  color: string | null
+}
+
+const tools: Tool[] = [
+  { name: 'WordPress', logo: 'https://cdn.simpleicons.org/wordpress/8a9985', logohover: 'https://cdn.simpleicons.org/wordpress/c9a84c', letter: null, color: null },
+  { name: 'Elementor Pro', logo: 'https://cdn.simpleicons.org/elementor/8a9985', logohover: 'https://cdn.simpleicons.org/elementor/c9a84c', letter: null, color: null },
+  { name: 'Follow Up Boss', logo: null, logohover: null, letter: 'FUB', color: '#c9a84c' },
+  { name: 'kvCORE', logo: null, logohover: null, letter: 'kv', color: '#3db89a' },
+  { name: 'Zapier', logo: 'https://cdn.simpleicons.org/zapier/8a9985', logohover: 'https://cdn.simpleicons.org/zapier/c9a84c', letter: null, color: null },
+  { name: 'IDX Broker', logo: null, logohover: null, letter: 'IDX', color: '#c9a84c' },
+  { name: 'WPForms', logo: 'https://cdn.simpleicons.org/wpforms/8a9985', logohover: 'https://cdn.simpleicons.org/wpforms/c9a84c', letter: null, color: null },
+  { name: 'Rank Math', logo: null, logohover: null, letter: 'RM', color: '#e85b4a' },
+  { name: 'WooCommerce', logo: 'https://cdn.simpleicons.org/woocommerce/8a9985', logohover: 'https://cdn.simpleicons.org/woocommerce/c9a84c', letter: null, color: null },
+  { name: 'LearnDash', logo: null, logohover: null, letter: 'LD', color: '#e98c2a' },
 ]
 
 const states = [
@@ -23,9 +31,9 @@ const states = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-28 bg-bg min-h-screen">
+    <div className="pt-20 bg-bg min-h-screen">
       {/* Hero */}
-      <section className="py-20 bg-bg2 border-b border-border">
+      <section className="py-12 bg-bg2 border-b border-border">
         <div className="wrap">
           <AnimateIn>
             <p className="section-num">— About</p>
@@ -91,8 +99,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {tools.map((tool, i) => (
               <AnimateIn key={tool.name} delay={i * 0.05}>
-                <div className="bg-bg3 border border-border rounded-[16px] p-6 text-center hover:border-gold/30 hover:-translate-y-1 transition-all duration-300">
-                  <div className="text-[32px] mb-3">{tool.icon}</div>
+                <div className="group bg-bg3 border border-border rounded-[16px] p-6 text-center hover:border-gold/30 hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-10 h-10 mx-auto mb-3 flex items-center justify-center">
+                    {tool.logo ? (
+                      <img
+                        src={tool.logohover ?? tool.logo}
+                        alt={tool.name}
+                        width={36}
+                        height={36}
+                        className="w-9 h-9 object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-200"
+                      />
+                    ) : (
+                      <span className="font-mono text-[11px] font-bold tracking-wide" style={{ color: tool.color ?? undefined }}>
+                        {tool.letter}
+                      </span>
+                    )}
+                  </div>
                   <span className="font-mono text-[10px] text-muted tracking-[0.1em] uppercase">{tool.name}</span>
                 </div>
               </AnimateIn>

@@ -217,12 +217,12 @@ export const serviceCards = [
 ]
 
 export const skills = [
-  { name: 'WordPress', pct: 95 },
-  { name: 'Elementor', pct: 93 },
-  { name: 'IDX Integration', pct: 90 },
-  { name: 'CRM Setup (FUB/kvCORE)', pct: 88 },
-  { name: 'UI Design', pct: 85 },
-  { name: 'SEO', pct: 82 },
-  { name: 'WooCommerce', pct: 80 },
-  { name: 'LearnDash', pct: 75 },
+  { name: 'WordPress', pct: 97, icon: 'https://cdn.simpleicons.org/wordpress/c9a84c' },
+  { name: 'Elementor Pro', pct: 95, icon: 'https://cdn.simpleicons.org/elementor/c9a84c' },
+  { name: 'IDX Integration', pct: 93, icon: 'https://cdn.simpleicons.org/homeadvisor/c9a84c' },
+  { name: 'Follow Up Boss', pct: 92, icon: null },
+  { name: 'kvCORE Setup', pct: 91, icon: null },
+  { name: 'WooCommerce', pct: 90, icon: 'https://cdn.simpleicons.org/woocommerce/c9a84c' },
+  { name: 'SEO (Rank Math)', pct: 93, icon: null },
+  { name: 'UI Design', pct: 91, icon: null },
 ]
