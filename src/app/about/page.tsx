@@ -45,7 +45,7 @@ export default function AboutPage() {
           <AnimateIn direction="left">
             <div className="rounded-[20px] overflow-hidden border border-border-mid">
               <Image
-                src="/images/developer.jpg"
+                src="/images/developer.png"
                 alt="Developer"
                 width={600}
                 height={600}
